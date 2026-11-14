@@ -2,11 +2,13 @@
 
 # DLSS 5 Sidecar for World of Warcraft
 
+> **Windows 10 fork.** This version is meant to run on Windows 10, version 2004 (build 19041) and newer. The [upstream project](https://github.com/xilla420/dlss5-wow-sidecar) requires Windows 11. Windows 10 has no capture-border switch, so this build does not call one. In testing the yellow border did not appear.
+
 [![Download](https://img.shields.io/github/v/release/xilla420/dlss5-wow-sidecar?label=download&color=c8aa6e)](https://github.com/xilla420/dlss5-wow-sidecar/releases/latest)
 [![CI](https://github.com/xilla420/dlss5-wow-sidecar/actions/workflows/ci.yml/badge.svg)](https://github.com/xilla420/dlss5-wow-sidecar/actions/workflows/ci.yml)
 [![Downloads](https://img.shields.io/github/downloads/xilla420/dlss5-wow-sidecar/total?color=1eff00)](https://github.com/xilla420/dlss5-wow-sidecar/releases)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-![Windows 11](https://img.shields.io/badge/Windows-11-0078D4)
+![Windows 10](https://img.shields.io/badge/Windows-10-0078D4)
 ![NVIDIA RTX 40 / 50](https://img.shields.io/badge/NVIDIA-RTX%2040%20%2F%2050-76B900)
 [![WoW: Forever supported](https://img.shields.io/badge/WoW%3A%20Forever-supported-c8aa6e)](#wow-forever)
 
@@ -66,7 +68,7 @@ saved separately, without committing unfinished tuning changes.
 The welcome page uses original generated artwork. Presets, strength controls and
 the primary action support keyboard navigation with visible focus.
 
-**You need:** Windows 11 · an NVIDIA **RTX 40** or **RTX 50** card · WoW in borderless
+**You need:** Windows 10 version 2004 or newer · an NVIDIA **RTX 40** or **RTX 50** card · WoW in borderless
 windowed mode (Windowed + Maximized on 3.3.5a).
 
 ## Hotkeys
