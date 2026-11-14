@@ -1,6 +1,7 @@
 #include "capture/WgcSource.h"
 
 #include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.Metadata.h>
 #include <winrt/Windows.Graphics.Capture.h>
 #include <winrt/Windows.Graphics.DirectX.h>
 #include <winrt/Windows.Graphics.DirectX.Direct3D11.h>
@@ -9,6 +10,7 @@
 #include <d3d11_4.h>
 #include <wrl/client.h>
 
+#include "core/Log.h"
 #include "gpu/DeviceBridge.h"
 
 using Microsoft::WRL::ComPtr;
@@ -95,8 +97,24 @@ std::unique_ptr<WgcSource> WgcSource::CreateForWindow(HWND target,
   });
 
   s->impl_->session = s->impl_->pool.CreateCaptureSession(item);
-  s->impl_->session.IsCursorCaptureEnabled(false);   // WoW draws its own cursor
-  s->impl_->session.IsBorderRequired(false);         // no yellow capture border
+  using winrt::Windows::Foundation::Metadata::ApiInformation;
+  // IsCursorCaptureEnabled is capture contract v10 (build 19041). Asking for a
+  // property the running Windows does not have throws and kills startup.
+  if (ApiInformation::IsPropertyPresent(
+          L"Windows.Graphics.Capture.GraphicsCaptureSession",
+          L"IsCursorCaptureEnabled")) {
+    s->impl_->session.IsCursorCaptureEnabled(false);  // WoW draws its own cursor
+  }
+  // IsBorderRequired is contract v12 (build 20348+). On Windows 10 19045 the
+  // call throws, so the yellow border stays. That border is acceptable.
+  if (ApiInformation::IsPropertyPresent(
+          L"Windows.Graphics.Capture.GraphicsCaptureSession", L"IsBorderRequired")) {
+    s->impl_->session.IsBorderRequired(false);  // no yellow border (Win11)
+    GlobalLog().Info("WGC capture border disabled");
+  } else {
+    GlobalLog().Info(
+        "WGC capture border left on: IsBorderRequired is not available");
+  }
   return s;
 }
 
