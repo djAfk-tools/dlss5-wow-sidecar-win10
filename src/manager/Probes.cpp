@@ -181,7 +181,10 @@ ProbeResult ProbeWindows() {
   }
 
   r.detail = Tr("Build ") + std::to_string(info.dwBuildNumber);
-  if (info.dwBuildNumber >= 22000) {
+  // 19041 is Windows 10 20H1, the first build whose capture contract this
+  // overlay uses. Windows 11 starts at 22000. The border API is guarded
+  // separately and may stay visible below that.
+  if (info.dwBuildNumber >= 19041) {
     r.state = ProbeState::Ok;
     return r;
   }
