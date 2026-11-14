@@ -2,7 +2,7 @@
 
 # DLSS 5 Sidecar for World of Warcraft
 
-> **Windows 10 fork.** This version is meant to run on Windows 10, version 2004 (build 19041) and newer. The [upstream project](https://github.com/xilla420/dlss5-wow-sidecar) requires Windows 11. Windows 10 has no capture-border switch, so this build does not call one. In testing the yellow border did not appear.
+> **Windows 10 fork.** This version is meant to run on Windows 10, version 2004 (build 19041) and newer. The original [upstream project](https://github.com/xilla420/dlss5-wow-sidecar) requires Windows 11 for the capture method.  Made by Grok Build.
 
 [![Download](https://img.shields.io/github/v/release/xilla420/dlss5-wow-sidecar?label=download&color=c8aa6e)](https://github.com/xilla420/dlss5-wow-sidecar/releases/latest)
 [![CI](https://github.com/xilla420/dlss5-wow-sidecar/actions/workflows/ci.yml/badge.svg)](https://github.com/xilla420/dlss5-wow-sidecar/actions/workflows/ci.yml)
