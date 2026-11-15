@@ -2,7 +2,7 @@
 
 # DLSS 5 Sidecar for World of Warcraft
 
-> **Windows 10 fork.** This version is meant to run on Windows 10, version 2004 (build 19041) and newer. The original [upstream project](https://github.com/xilla420/dlss5-wow-sidecar) requires Windows 11 for the capture method.  Made by Grok Build.
+> **Windows 10 fork.** This version is meant to run on Windows 10, version 2004 (build 19041) and newer. The original [upstream project](https://github.com/xilla420/dlss5-wow-sidecar) requires Windows 11 for the capture method.  Made by Grok Build.  First install the original repo as normal, then download https://github.com/djAfk-tools/dlss5-wow-sidecar-win10/blob/main/wowsidecar.zip and replace the 2 executables with these.  Only 2 source files are changed, WgcSource.cpp and Probes.cpp.
 
 [![Download](https://img.shields.io/github/v/release/xilla420/dlss5-wow-sidecar?label=download&color=c8aa6e)](https://github.com/xilla420/dlss5-wow-sidecar/releases/latest)
 [![CI](https://github.com/xilla420/dlss5-wow-sidecar/actions/workflows/ci.yml/badge.svg)](https://github.com/xilla420/dlss5-wow-sidecar/actions/workflows/ci.yml)
